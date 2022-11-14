@@ -1,3 +1,5 @@
+alert("Bienvenido soy una calculadora de calorias")
+
 const objetivoKcal = prompt ("¿Cual es tu objetivo de calorias diarias?")
 let contadorKcal= 0;
 let consumidas= 0
