@@ -1,6 +1,9 @@
 alert("Bienvenido soy una calculadora de calorias")
 
+const nombre= prompt ("Cual es tu nombre?")
 const objetivoKcal = prompt ("¿Cual es tu objetivo de calorias diarias?")
+const queDeporte = prompt ("Qué deporte realizas?")
+
 let contadorKcal= 0;
 let consumidas= 0
 let respuesta= "si"
@@ -10,7 +13,25 @@ let respuesta2="si"
 let dia=prompt ("Que dia es?")
 let diaAhora= dia
 
-// 
+class usuarios {
+    constructor (nombre, objetivo, deporte, resultado){
+    this.nombre=nombre;
+    this.objetivo=objetivo;
+    this.deporte=deporte;
+    this.resultado=resultado;
+
+    }
+}
+
+const arrayUsuarios = []; // Array para cuando se haga un sistema mas grande
+
+
+
+
+
+
+const suma = (num1,num2) =>{ return num1+num2 }
+const resta = (num1,num2) =>{ return num1-num2 }
 const cuantasKcal=(com) =>{ // funcion para contar calorias consumidas
     if (com=== "desayuno"){
         consumidas= parseInt(prompt (`Cuantas calorias consumiste en el ${com}`)) ;
@@ -33,13 +54,23 @@ const cuantasKcal=(com) =>{ // funcion para contar calorias consumidas
 const comparador = (obj, cont) =>{ // funcion para dar el resultado
 
     if (obj > cont){
-        document.write(`El <b style="color:red">${dia}</b> No cumpliste tus calorias diarias, consumiste <b style="color:red"> ${contadorKcal}</b>. Te faltaron consumir     ${(objetivoKcal-contadorKcal)}`);
+        const mensajeFinal=`El ${dia} No cumpliste tus calorias diarias, consumiste  ${contadorKcal}. Te faltaron consumir     ${(objetivoKcal-contadorKcal)}`;
+        const usuario = new usuarios (nombre,objetivoKcal,queDeporte, mensajeFinal)
+        arrayUsuarios.push(usuario)  // Agregando usuarios al array 
+        console.log(arrayUsuarios)
+       
         }  
         else if (obj==cont){
-            document.write(`El <b style="color:red"> ${dia}</b> Cumpliste con tus calorias diarias! , consumiste <b style="color:green"> ${contadorKcal}</b>.`);
+            const mensajeFinal=`El <b style="color:red"> ${dia}</b> Cumpliste con tus calorias diarias! , consumiste <b style="color:green"> ${contadorKcal}</b>.`;
+            const usuario = new usuarios (nombre,objetivoKcal,queDeporte, mensajeFinal)
+            arrayUsuarios.push(usuario)
+            console.log(arrayUsuarios)
         }   
         else if (obj< cont){
-            document.write(`El <b style="color:blue"> ${dia}</b> Superaste tus calorias diarias por ${(contadorKcal-objetivoKcal)} calorias, consumiste <b style="color:red">${contadorKcal}</b>.`);
+            const mensajeFinal=`El <b style="color:blue"> ${dia}</b> Superaste tus calorias diarias por ${(contadorKcal-objetivoKcal)} calorias, consumiste <b style="color:red">${contadorKcal}</b>.`;
+            const usuario = new usuarios (nombre,objetivoKcal,queDeporte, mensajeFinal)
+            arrayUsuarios.push(usuario)
+            console.log(arrayUsuarios)
         }
 }
 
@@ -58,7 +89,7 @@ while (respuesta=="si"){
                     consumidas=0;
                     
                     let consumida= cuantasKcal(comida)
-                    contadorKcal=contadorKcal+consumida;
+                    contadorKcal=suma(contadorKcal,consumida)
                     
                     }                  
                 }
