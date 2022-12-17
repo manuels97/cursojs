@@ -1,0 +1,19 @@
+*{
+    margin: auto;
+    padding: 0;
+}
+
+.container{
+    width: 70%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: red;
+}
+.contadore{
+    background-color:green;
+    width: fit-content;
+    height: 25vh;
+    text-align: center;
+}
